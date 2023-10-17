@@ -1,24 +1,25 @@
 version: 0.2
 
 env:
-    variables:
-        # CACHE_CONTROL: "86400"
-        BUILD_FOLDER: "dist"
+  variables:
+    BUILD_FOLDER: "dist"
+
 phases:
   install:
     runtime-versions:
-        nodejs: 16
+      nodejs: 18
     commands:
-        - echo Installing source NPM dependencies...
-        - npm install
-        - npm install -g @angular/cli
+      - echo Installing source NPM dependencies...
+      - npm install
+      - npm install -g @angular/cli
+
   build:
     commands:
-        - echo Build started 
-        - ng build 
-artifacts:
-    files:
-        - '**/*'
-    base-directory: 'dist*'
-    discard-paths: yes
+      - echo Build started 
+      - ng build 
 
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
+  discard-paths: yes
